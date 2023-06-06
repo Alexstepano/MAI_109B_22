@@ -62,6 +62,7 @@ void ExpressionTree::delete_branch(Node *node)
     delete_branch(node->get_left());
     delete_branch(node->get_right());
     delete node;
+    node=nullptr;
 }
 Node *ExpressionTree::create_branch(const std::string &postfix)
 {
