@@ -1,0 +1,7 @@
+Owner Surname       Classification 
+----------------------------------------------
+Nguyen Valentin     Server         
+John Doe            Server         
+Jane Smith          Workstation    
+Sarah Davis         Workstation    
+Alex Johnson        Server         

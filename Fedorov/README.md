@@ -13,4 +13,4 @@
 | [`KP6`](https://github.com/Maxsmile123/MAI_109B_22/tree/main/Fedorov/KP6)      | 37                  |
 | [`KP7`](https://github.com/Maxsmile123/MAI_109B_22/tree/main/Fedorov/KP7)      | 2, 11                  |
 | [`KP8`](https://github.com/Maxsmile123/MAI_109B_22/tree/main/Fedorov/KP8)      | 4, 4, 13                 |
-| [`KP9`](https://github.com/Maxsmile123/MAI_109B_22/tree/main/Fedorov/KP9)      | None                  |
+| [`KP9`](https://github.com/Maxsmile123/MAI_109B_22/tree/main/Fedorov/KP9)      | 9, 1                  |
