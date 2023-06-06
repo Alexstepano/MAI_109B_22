@@ -14,7 +14,7 @@ int main()
     std::cout << "\n";
     tree.print_tree(tree.get_root());
     std::cout << "\n\n\n";
-    tree.clear_multiply_ones(tree.get_root());
+    tree.lab_task(tree.get_root());
     tree.print_infix_form(tree.get_root());
     std::cout << "\n";
     tree.print_postfix_form(tree.get_root());
@@ -30,7 +30,7 @@ int main()
     std::cout << "\n";
     tree2.print_tree(tree2.get_root());
     std::cout << "\n\n\n";
-    tree2.clear_multiply_ones(tree2.get_root());
+    tree2.lab_task(tree2.get_root());
     tree2.print_infix_form(tree2.get_root());
     std::cout << "\n";
     tree2.print_postfix_form(tree2.get_root());

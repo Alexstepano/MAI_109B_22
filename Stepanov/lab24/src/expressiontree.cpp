@@ -59,8 +59,8 @@ std::string ExpressionTree::to_postfix_form(const std::string &expression)
 void ExpressionTree::delete_branch(Node *node)
 {
     if (!node) return;
-    delete_branch(node->left);
-    delete_branch(node->right);
+    delete_branch(node->get_left());
+    delete_branch(node->get_right());
     delete node;
 }
 Node *ExpressionTree::create_branch(const std::string &postfix)
@@ -113,59 +113,52 @@ void ExpressionTree::print_postfix_form(Node *root) const
 {
     if (root == nullptr) return;
 
-    print_postfix_form(root->left);
-    print_postfix_form(root->right);
-    std::cout << root->token;
+    print_postfix_form(root->get_left());
+    print_postfix_form(root->get_right());
+    std::cout << root->get_token();
 }
 void ExpressionTree::print_infix_form(Node *root) const
 {
     if (root == nullptr) return;
-    if (is_operator(root->token)) {
+    if (is_operator(root->get_token())) {
         std::cout << '(';
     }
-    print_infix_form(root->left);
-    std::cout << root->token;
-    print_infix_form(root->right);
-    if (is_operator(root->token)) {
+    print_infix_form(root->get_left());
+    std::cout << root->get_token();
+    print_infix_form(root->get_right());
+    if (is_operator(root->get_token())) {
         std::cout << ')';
     }
 }
 void ExpressionTree::print_tree(Node *node, const size_t height) const
 {
     if (!(node == nullptr)) {
-        print_tree(node->right, height + 1);
+        print_tree(node->get_right(), height + 1);
         for (int64_t i = 0; i < height; ++i) {
             std::cout << '\t';
         }
-        std::cout << node->token << '\n';
-        print_tree(node->left, height + 1);
+        std::cout << node->get_token() << '\n';
+        print_tree(node->get_left(), height + 1);
     }
 }
-void ExpressionTree::clear_multiply_ones(Node *node)
+void ExpressionTree::lab_task(Node *node)
 {
     if (!node) return;
-    clear_multiply_ones(node->left);
-    clear_multiply_ones(node->right);
-    bool shift_flag = false;
+    lab_task(node->get_left());
+    lab_task(node->get_right());
     Node *temp_node = nullptr;
-    if (node->token == '*') {
-        if (node->left && node->left->token == '1') {
-            delete node->left;
-            temp_node = node->right;
-            shift_flag = true;
+    if (node->get_token() == '*') {
+        if (node->get_left() && node->get_left()->get_token() == '1') {
+            delete node->get_left();
+            temp_node = node->get_right();
+            node->rewrite_node(temp_node);
         }
-        else if (node->right && node->right->token == '1') {
-            delete node->right;
-            temp_node = node->left;
-            shift_flag = true;
+        else if (node->get_right() && node->get_right()->get_token() == '1') {
+            delete node->get_right();
+            temp_node = node->get_left();
+            node->rewrite_node(temp_node);
         }
-        if (shift_flag) {
-            node->token = temp_node->token;
-            node->right = temp_node->right;
-            node->left = temp_node->left;
-            delete temp_node;
-            shift_flag = false;
-        }
+
     }
 }
 
